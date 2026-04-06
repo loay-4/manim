@@ -51,7 +51,7 @@ window:
   # size: (1920, 1080)  # Specific size, in pixels
 camera:
   resolution: (1920, 1080)
-  background_color: "#333333"
+  background_color: "#000000"
   fps: 30
   background_opacity: 1.0
 file_writer:
@@ -65,11 +65,11 @@ file_writer:
 # Most of the scene configuration will come from CLI arguments,
 # but defaults can be set here
 scene:
-  show_animation_progress: False
+  show_animation_progress: True
   leave_progress_bars: False
   # When skipping animations, should a single frame be rendered
   # at the end of each play call?
-  preview_while_skipping: True
+  preview_while_skipping: False
   # How long does a scene pause on Scene.wait calls
   default_wait_time: 1.0
 vmobject:
@@ -86,7 +86,7 @@ tex:
   font_size_for_unit_height: 144
 text:
   # font: "Cambria Math"
-  font: "Consolas"
+  font: "CMU Serif"
   alignment: "LEFT"
   # The font size at which Text("0") has a height of 1 manim unit
   font_size_for_unit_height: 144

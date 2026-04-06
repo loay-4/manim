@@ -4,7 +4,7 @@ default:
   description: ""
   compiler: latex
   preamble: |-
-    \usepackage[english]{babel}
+    \usepackage[ngerman]{babel}
     \usepackage[utf8]{inputenc}
     \usepackage[T1]{fontenc}
     \usepackage{amsmath}
