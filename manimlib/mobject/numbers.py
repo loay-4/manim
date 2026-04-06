@@ -143,6 +143,7 @@ class DecimalNumber(VMobject):
             else:
                 num_string = num_string[1:]
         num_string = num_string.replace("-", "–")
+        num_string = num_string.replace(".", ",")
         return num_string
 
     def char_to_mob(self, char: str) -> Text:
