@@ -149,7 +149,7 @@ class InteractiveSceneEmbed:
         `extract_scene.insert_embed_line_to_module()` method.
 
         Before reload, the scene is cleared and the entire state is reset, such
-        that we can start from a clean slate. This is taken care of by the
+        that we can start from a clean state. This is taken care of by the
         run_scenes function in __main__.py, which will catch the error raised by the
         `exit_raise` magic command that we invoke here.
 
