@@ -174,6 +174,20 @@ class Write(DrawBorderThenFill):
         return lag_ratio
 
 
+class Unwrite(Write):
+    def __init__(
+        self,
+        vmobject: VMobject,
+        rate_func: Callable[[float], float] = lambda t: smooth(1 - t),
+        **kwargs,
+    ):
+        super().__init__(
+            vmobject,
+            rate_func=rate_func,
+            **kwargs
+        )
+
+
 class ShowIncreasingSubsets(Animation):
     def __init__(
         self,

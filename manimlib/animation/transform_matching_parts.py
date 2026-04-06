@@ -5,10 +5,12 @@ from difflib import SequenceMatcher
 
 from manimlib.animation.composition import AnimationGroup
 from manimlib.animation.fading import FadeInFromPoint
+from manimlib.animation.creation import Write
 from manimlib.animation.fading import FadeOutToPoint
 from manimlib.animation.transform import Transform
 from manimlib.mobject.mobject import Mobject
 from manimlib.mobject.types.vectorized_mobject import VMobject
+from manimlib.mobject.svg.svg_mobject import VMobjectFromSVGPath
 from manimlib.mobject.svg.string_mobject import StringMobject
 
 from typing import TYPE_CHECKING
@@ -62,10 +64,16 @@ class TransformMatchingParts(AnimationGroup):
         for target_piece in self.target_pieces:
             if any([target_piece in anim.mobject.get_family() for anim in self.anims]):
                 continue
-            self.anims.append(FadeInFromPoint(
-                target_piece, source.get_center(),
-                **self.anim_config
-            ))
+            if isinstance(target_piece, VMobjectFromSVGPath):
+                self.anims.append(
+                    Write(target_piece, **self.anim_config)
+                )
+            else:
+                self.anims.append(FadeInFromPoint(
+                    target_piece, source.get_center()
+                    **self.anim_config
+                ))
+
 
         super().__init__(
             *self.anims,
